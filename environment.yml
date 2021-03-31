@@ -1,0 +1,27 @@
+# An environment to develop, build, test, and document bmi-geotiff.
+name: geotiff
+channels:
+  - conda-forge
+dependencies:
+  - python =3
+  - pip
+  - pyyaml
+  - xarray
+  - rasterio
+  - bmipy
+  - make
+  - black
+  - flake8
+  - isort >=5
+  - pytest
+  - pytest-cov
+  - pytest-datadir
+  - coveralls
+  - bmi-tester
+  - sphinx
+  - recommonmark
+  - pandoc
+  - notebook
+  - matplotlib
+  - pip:
+    - zest.releaser
