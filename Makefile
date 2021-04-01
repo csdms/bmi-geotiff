@@ -62,7 +62,7 @@ test: ## run tests quickly with the default Python
 	pytest --disable-warnings --cov=bmi_geotiff --cov-report=xml:./coverage.xml -vvv
 
 bmi-test: ## run the bmi-tester
-	bmi-test bmi_geotiff:Bmigeotiff --config-file=./examples/config.yaml --root-dir=./examples -vvv
+	bmi-test bmi_geotiff:BmiGeoTiff --config-file=./examples/config.yaml --root-dir=./examples -vvv
 
 coverage: ## check code coverage quickly with the default Python
 	pytest --cov --cov-report=html
