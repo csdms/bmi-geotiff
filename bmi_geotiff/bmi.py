@@ -1,11 +1,37 @@
 # -*- coding: utf-8 -*-
+from collections import namedtuple
 from typing import Tuple
 
-from bmipy import Bmi
 import numpy
+import yaml
+from bmipy import Bmi
+
+from .io import GeoTiff
+
+BmiVar = namedtuple(
+    "BmiVar", ["dtype", "itemsize", "nbytes", "units", "location", "grid"]
+)
+BmiGridRectilinear = namedtuple("BmiGridRectilinear", ["shape", "type"])
+BmiGridScalar = namedtuple("BmiGridScalar", ["shape", "type"])
 
 
 class BmiGeoTiff(Bmi):
+
+    """BMI-mediated access to data and metadata in a GeoTIFF file."""
+
+    _name = "bmi-geotiff"
+    _input_var_names = ()
+    _output_var_names = (
+        "gis__raster_data",
+        "gis__coordinate_reference_system",
+    )
+
+    def __init__(self) -> None:
+        self._config = {}
+        self._da = None
+        self._grid = {}
+        self._var = {}
+
     def finalize(self) -> None:
         """Perform tear-down tasks for the model.
 
@@ -13,7 +39,9 @@ class BmiGeoTiff(Bmi):
         loop. This typically includes deallocating memory, closing files and
         printing reports.
         """
-        raise NotImplementedError("finalize")
+        self._da = None
+        self._grid = None
+        self._var = None
 
     def get_component_name(self) -> str:
         """Name of the component.
@@ -23,7 +51,7 @@ class BmiGeoTiff(Bmi):
         str
             The name of the component.
         """
-        raise NotImplementedError("get_component_name")
+        return self._name
 
     def get_current_time(self) -> float:
         """Current time of the model.
@@ -33,7 +61,7 @@ class BmiGeoTiff(Bmi):
         float
             The current model time.
         """
-        raise NotImplementedError("get_current_time")
+        return 0.0
 
     def get_end_time(self) -> float:
         """End time of the model.
@@ -43,7 +71,7 @@ class BmiGeoTiff(Bmi):
         float
             The maximum model time.
         """
-        raise NotImplementedError("get_end_time")
+        return 1.0
 
     def get_grid_edge_count(self, grid: int) -> int:
         """Get the number of edges in the grid.
@@ -202,7 +230,7 @@ class BmiGeoTiff(Bmi):
         int
             Rank of the grid.
         """
-        raise NotImplementedError("get_grid_rank")
+        return len(self._grid[grid].shape)
 
     def get_grid_shape(self, grid: int, shape: numpy.ndarray) -> numpy.ndarray:
         """Get dimensions of the computational grid.
@@ -219,7 +247,8 @@ class BmiGeoTiff(Bmi):
         ndarray of int
             The input numpy array that holds the grid's shape.
         """
-        raise NotImplementedError("get_grid_shape")
+        shape[:] = self._grid[grid].shape
+        return shape
 
     def get_grid_size(self, grid: int) -> int:
         """Get the total number of elements in the computational grid.
@@ -234,7 +263,7 @@ class BmiGeoTiff(Bmi):
         int
             Size of the grid.
         """
-        raise NotImplementedError("get_grid_size")
+        return int(numpy.prod(self._grid[grid].shape))
 
     def get_grid_spacing(self, grid: int, spacing: numpy.ndarray) -> numpy.ndarray:
         """Get distance between nodes of the computational grid.
@@ -266,7 +295,7 @@ class BmiGeoTiff(Bmi):
         str
             Type of grid as a string.
         """
-        raise NotImplementedError("get_grid_type")
+        return self._grid[grid].type
 
     def get_grid_x(self, grid: int, x: numpy.ndarray) -> numpy.ndarray:
         """Get coordinates of grid nodes in the x direction.
@@ -283,7 +312,12 @@ class BmiGeoTiff(Bmi):
         ndarray of float
             The input numpy array that holds the grid's column x-coordinates.
         """
-        raise NotImplementedError("get_grid_x")
+        if grid == 0:
+            x[:] = self._da.x.values
+        else:
+            x[:] = 0
+
+        return x
 
     def get_grid_y(self, grid: int, y: numpy.ndarray) -> numpy.ndarray:
         """Get coordinates of grid nodes in the y direction.
@@ -300,7 +334,12 @@ class BmiGeoTiff(Bmi):
         ndarray of float
             The input numpy array that holds the grid's row y-coordinates.
         """
-        raise NotImplementedError("get_grid_y")
+        if grid == 0:
+            y[:] = self._da.y.values
+        else:
+            y[:] = 0
+
+        return y
 
     def get_grid_z(self, grid: int, z: numpy.ndarray) -> numpy.ndarray:
         """Get coordinates of grid nodes in the z direction.
@@ -317,7 +356,12 @@ class BmiGeoTiff(Bmi):
         ndarray of float
             The input numpy array that holds the grid's layer z-coordinates.
         """
-        raise NotImplementedError("get_grid_z")
+        if grid == 0:
+            z[:] = self._da.band.values
+        else:
+            z[:] = 0
+
+        return z
 
     def get_input_item_count(self) -> int:
         """Count of a model's input variables.
@@ -327,7 +371,7 @@ class BmiGeoTiff(Bmi):
         int
           The number of input variables.
         """
-        raise NotImplementedError("get_input_item_count")
+        return len(self._input_var_names)
 
     def get_input_var_names(self) -> Tuple[str]:
         """List of a model's input variables.
@@ -349,7 +393,7 @@ class BmiGeoTiff(Bmi):
 
         Standard Names do not have to be used within the model.
         """
-        raise NotImplementedError("get_input_var_names")
+        return self._input_var_names
 
     def get_output_item_count(self) -> int:
         """Count of a model's output variables.
@@ -359,7 +403,7 @@ class BmiGeoTiff(Bmi):
         int
           The number of output variables.
         """
-        raise NotImplementedError("get_output_item_count")
+        return len(self._output_var_names)
 
     def get_output_var_names(self) -> Tuple[str]:
         """List of a model's output variables.
@@ -372,7 +416,7 @@ class BmiGeoTiff(Bmi):
         list of str
             The output variables for the model.
         """
-        raise NotImplementedError("get_output_var_names")
+        return self._output_var_names
 
     def get_start_time(self) -> float:
         """Start time of the model.
@@ -384,7 +428,7 @@ class BmiGeoTiff(Bmi):
         float
             The model start time.
         """
-        raise NotImplementedError("get_start_time")
+        return 0.0
 
     def get_time_step(self) -> float:
         """Current time step of the model.
@@ -396,7 +440,7 @@ class BmiGeoTiff(Bmi):
         float
             The time step used in model.
         """
-        raise NotImplementedError("get_time_step")
+        return 1.0
 
     def get_time_units(self) -> str:
         """Time units of the model.
@@ -410,7 +454,7 @@ class BmiGeoTiff(Bmi):
         -----
         CSDMS uses the UDUNITS standard from Unidata.
         """
-        raise NotImplementedError("get_time_units")
+        return "1"
 
     def get_value(self, name: str, dest: numpy.ndarray) -> numpy.ndarray:
         """Get a copy of values of the given variable.
@@ -431,7 +475,14 @@ class BmiGeoTiff(Bmi):
         ndarray
             The same numpy array that was passed as an input buffer.
         """
-        raise NotImplementedError("get_value")
+        if name == self._output_var_names[0]:
+            dest[:] = self.get_value_ptr(name).reshape(-1).copy()
+        elif name == self._output_var_names[1]:
+            dest[:] = self._da.attrs["crs"]
+        else:
+            raise NotImplementedError("get_value")
+
+        return dest
 
     def get_value_at_indices(
         self, name: str, dest: numpy.ndarray, inds: numpy.ndarray
@@ -452,7 +503,11 @@ class BmiGeoTiff(Bmi):
         array_like
             Value of the model variable at the given location.
         """
-        raise NotImplementedError("get_value_at_indices")
+        if name == self._output_var_names[0]:
+            dest[:] = self.get_value_ptr(name).reshape(-1)[inds]
+            return dest
+        else:
+            raise NotImplementedError("get_value_at_indices")
 
     def get_value_ptr(self, name: str) -> numpy.ndarray:
         """Get a reference to values of the given variable.
@@ -471,7 +526,10 @@ class BmiGeoTiff(Bmi):
         array_like
             A reference to a model variable.
         """
-        raise NotImplementedError("get_value_ptr")
+        if name == self._output_var_names[0]:
+            return self._da.values
+        else:
+            raise NotImplementedError("get_value_ptr")
 
     def get_var_grid(self, name: str) -> int:
         """Get grid identifier for the given variable.
@@ -486,7 +544,7 @@ class BmiGeoTiff(Bmi):
         int
           The grid identifier.
         """
-        raise NotImplementedError("get_var_grid")
+        return self._var[name].grid
 
     def get_var_itemsize(self, name: str) -> int:
         """Get memory use for each array element in bytes.
@@ -501,7 +559,7 @@ class BmiGeoTiff(Bmi):
         int
             Item size in bytes.
         """
-        raise NotImplementedError("get_var_itemsize")
+        return self._var[name].itemsize
 
     def get_var_location(self, name: str) -> str:
         """Get the grid element type that the a given variable is defined on.
@@ -537,7 +595,7 @@ class BmiGeoTiff(Bmi):
 
         .. _ugrid conventions: http://ugrid-conventions.github.io/ugrid-conventions
         """
-        raise NotImplementedError("get_var_location")
+        return self._var[name].location
 
     def get_var_nbytes(self, name: str) -> int:
         """Get size, in bytes, of the given variable.
@@ -552,7 +610,7 @@ class BmiGeoTiff(Bmi):
         int
             The size of the variable, counted in bytes.
         """
-        raise NotImplementedError("get_var_nbytes")
+        return self._var[name].nbytes
 
     def get_var_type(self, name: str) -> str:
         """Get data type of the given variable.
@@ -567,7 +625,7 @@ class BmiGeoTiff(Bmi):
         str
             The Python variable type; e.g., ``str``, ``int``, ``float``.
         """
-        raise NotImplementedError("get_var_type")
+        return self._var[name].dtype
 
     def get_var_units(self, name: str) -> str:
         """Get units of the given variable.
@@ -596,7 +654,7 @@ class BmiGeoTiff(Bmi):
 
         .. _UDUNITS: http://www.unidata.ucar.edu/software/udunits
         """
-        raise NotImplementedError("get_var_units")
+        return self._var[name].units
 
     def initialize(self, config_file: str) -> None:
         """Perform startup tasks for the model.
@@ -619,7 +677,46 @@ class BmiGeoTiff(Bmi):
         recommended. A template of a model's configuration file
         with placeholder values is used by the BMI.
         """
-        raise NotImplementedError("initialize")
+        if config_file:
+            with open(config_file, "r") as fp:
+                self._config = yaml.safe_load(fp).get("bmi-geotiff", {})
+        else:
+            self._config = {"filename": None}
+        self._da = GeoTiff(**self._config).da
+
+        self._grid = {
+            0: BmiGridRectilinear(
+                shape=(
+                    self._da.sizes["band"],
+                    self._da.sizes["y"],
+                    self._da.sizes["x"],
+                ),
+                type="rectilinear",
+            ),
+            1: BmiGridScalar(
+                shape=numpy.empty(0),
+                type="scalar",
+            ),
+        }
+
+        self._var = {
+            self._output_var_names[0]: BmiVar(
+                dtype=str(self._da.values.dtype),
+                itemsize=self._da.values.itemsize,
+                nbytes=self._da.values.nbytes,
+                location="face",  # from xarray.open_rasterio docs
+                units="1",
+                grid=0,
+            ),
+            self._output_var_names[1]: BmiVar(
+                dtype="<U1",
+                itemsize=1,
+                nbytes=len(self._da.attrs["crs"]),
+                location="face",
+                units="1",
+                grid=1,
+            ),
+        }
 
     def set_value(self, name: str, values: numpy.ndarray) -> None:
         """Specify a new value for a model variable.
@@ -674,4 +771,3 @@ class BmiGeoTiff(Bmi):
             A model time later than the current model time.
         """
         raise NotImplementedError("update_until")
-
