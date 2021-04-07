@@ -14,8 +14,7 @@ BmiVar = namedtuple(
     "BmiVar", ["dtype", "itemsize", "nbytes", "units", "location", "grid"]
 )
 BmiGridRectilinear = namedtuple("BmiGridRectilinear", ["shape", "type"])
-BmiGridScalar = namedtuple("BmiGridScalar", ["shape", "type"])
-BmiGridVector = namedtuple("BmiGridVector", ["shape", "type"])
+BmiGridNone = namedtuple("BmiGridNone", ["shape", "type"])
 
 
 class BmiGeoTiff(Bmi):
@@ -705,13 +704,13 @@ class BmiGeoTiff(Bmi):
                 ),
                 type="rectilinear",
             ),
-            1: BmiGridScalar(
-                shape=numpy.empty(0),
-                type="scalar",
+            1: BmiGridNone(
+                shape=(),
+                type="none",
             ),
-            2: BmiGridVector(
+            2: BmiGridNone(
                 shape=numpy.empty(len(self._da.attrs["transform"])).shape,
-                type="vector",
+                type="none",
             ),
         }
 
@@ -728,7 +727,7 @@ class BmiGeoTiff(Bmi):
                 dtype="<U1",
                 itemsize=1,
                 nbytes=len(self._da.attrs["crs"]),
-                location="face",
+                location="none",
                 units="1",
                 grid=1,
             ),
@@ -736,7 +735,7 @@ class BmiGeoTiff(Bmi):
                 dtype=type(self._da.attrs["transform"][0]).__name__,
                 itemsize=SIZEOF_FLOAT,
                 nbytes=len(self._da.attrs["transform"])*SIZEOF_FLOAT,
-                location="face",
+                location="none",
                 units="m",
                 grid=2,
             ),
