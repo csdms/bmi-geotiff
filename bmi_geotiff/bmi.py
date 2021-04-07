@@ -8,11 +8,14 @@ from bmipy import Bmi
 
 from .io import GeoTiff
 
+SIZEOF_FLOAT = 8
+
 BmiVar = namedtuple(
     "BmiVar", ["dtype", "itemsize", "nbytes", "units", "location", "grid"]
 )
 BmiGridRectilinear = namedtuple("BmiGridRectilinear", ["shape", "type"])
 BmiGridScalar = namedtuple("BmiGridScalar", ["shape", "type"])
+BmiGridVector = namedtuple("BmiGridVector", ["shape", "type"])
 
 
 class BmiGeoTiff(Bmi):
@@ -24,6 +27,7 @@ class BmiGeoTiff(Bmi):
     _output_var_names = (
         "gis__raster_data",
         "gis__coordinate_reference_system",
+        "gis__gdal_geotransform",
     )
 
     def __init__(self) -> None:
@@ -479,6 +483,8 @@ class BmiGeoTiff(Bmi):
             dest[:] = self.get_value_ptr(name).reshape(-1).copy()
         elif name == self._output_var_names[1]:
             dest[:] = self._da.attrs["crs"]
+        elif name == self._output_var_names[2]:
+            dest[:] = self._da.attrs["transform"]
         else:
             raise NotImplementedError("get_value")
 
@@ -697,6 +703,10 @@ class BmiGeoTiff(Bmi):
                 shape=numpy.empty(0),
                 type="scalar",
             ),
+            2: BmiGridVector(
+                shape=numpy.empty(len(self._da.attrs["transform"])).shape,
+                type="vector",
+            ),
         }
 
         self._var = {
@@ -715,6 +725,14 @@ class BmiGeoTiff(Bmi):
                 location="face",
                 units="1",
                 grid=1,
+            ),
+            self._output_var_names[2]: BmiVar(
+                dtype=type(self._da.attrs["transform"][0]).__name__,
+                itemsize=SIZEOF_FLOAT,
+                nbytes=len(self._da.attrs["transform"])*SIZEOF_FLOAT,
+                location="face",
+                units="m",
+                grid=2,
             ),
         }
 
