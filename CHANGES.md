@@ -1,7 +1,7 @@
 Changes for bmi-geotiff
 =======================
 
-0.1 (unreleased)
+0.1 (2021-04-16)
 ----------------
 
 - Create base library that uses xarray
