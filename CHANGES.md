@@ -1,6 +1,12 @@
 Changes for bmi-geotiff
 =======================
 
+0.2 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
 0.1 (2021-04-16)
 ----------------
 
