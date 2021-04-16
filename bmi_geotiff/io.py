@@ -12,7 +12,7 @@ class GeoTiff:
         Parameters
         ----------
         filename : str, optional
-            Path to the file to open.
+            Path or URL to the file to open.
         """
         self._da = None
         self._filename = None
@@ -34,7 +34,7 @@ class GeoTiff:
         Parameters
         ----------
         filename : str
-            Path to the file to open.
+            Path or URL to the file to open.
         """
         self._filename = filename
         self._da = xr.open_rasterio(self._filename)
