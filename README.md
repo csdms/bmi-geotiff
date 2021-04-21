@@ -1,4 +1,5 @@
 [![Basic Model Interface](https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg)](https://bmi.readthedocs.io/)
+[![PyPI](https://img.shields.io/pypi/v/bmi-geotiff)](https://pypi.org/project/bmi-geotiff)
 
 # bmi-geotiff
 
@@ -93,19 +94,12 @@ Display the image with the [xarray.plot.imshow](http://xarray.pydata.org/en/stab
 >>> plt.show()
 ```
 
-![Example GeoTiff display](./examples/example-rgb.png)
+![Example GeoTiff display through *xarray*.](./examples/example-rgb.png)
 
 For examples with more detail,
 see the Jupyter Notebooks and Python scripts
 included in the [examples](https://github.com/csdms/bmi-geotiff/tree/main/examples) directory
 of the *bmi-geotiff* repository.
 
-## Documentation
-
-Documentation for the *bmi-geotiff* API
+Documentation for *bmi-geotiff*
 is available at https://bmi-geotiff.readthedocs.io.
-
-## Acknowledgments
-
-This work is supported by the National Science Foundation under Award No. [1831623](https://nsf.gov/awardsearch/showAward?AWD_ID=1831623),
-*Community Facility Support: The Community Surface Dynamics Modeling System (CSDMS)*.
