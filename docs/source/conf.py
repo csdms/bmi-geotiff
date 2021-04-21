@@ -13,16 +13,22 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import datetime
+
+import pkg_resources
+
+# The master toctree document.
+master_doc = "index"
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'bmi-geotiff'
-copyright = '2021, Community Surface Dynamics Modeling System'
 author = 'Community Surface Dynamics Modeling System'
-
-# The full version, including alpha/beta/rc tags
-release = 'v0.1'
+version = pkg_resources.get_distribution("bmi_geotiff").version
+release = version
+this_year = datetime.date.today().year
+copyright = "%s, %s" % (this_year, author)
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,6 +37,9 @@ release = 'v0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,3 +62,23 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+html_logo = "_static/powered-by-logo-header.png"
+
+# Custom sidebar templates, maps document names to template names.
+html_sidebars = {
+    "index": [
+        "sidebarintro.html",
+        "links.html",
+        "sourcelink.html",
+        "searchbox.html",
+    ],
+    "**": [
+        "sidebarintro.html",
+        "links.html",
+        "sourcelink.html",
+        "searchbox.html",
+    ],
+}

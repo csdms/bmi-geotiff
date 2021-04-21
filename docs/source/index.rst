@@ -3,6 +3,18 @@
 .. include:: README.rst
 
 
+API Reference
+=============
+
+Looking for information on a particular function, class, or method?
+This part of the documentation is for you.
+
+.. toctree::
+   :maxdepth: 2
+
+   api/index
+
+
 Additional Information
 ======================
 
