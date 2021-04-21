@@ -5,7 +5,7 @@
 
 Access data (and metadata) from a GeoTIFF file through an API or a BMI.
 
-The *bmi-geotiff* API accepts a filepath or an URL to a GeoTIFF file.
+The *bmi-geotiff* library accepts a filepath or an URL to a GeoTIFF file.
 Data are loaded into an
 [xarray](http://xarray.pydata.org/en/stable/)
 [DataArray](http://xarray.pydata.org/en/stable/api.html#dataarray)
@@ -67,7 +67,7 @@ Make an instance of `GeoTiff` with this URL:
 ```
 This step might take a few moments as the data are pulled from GitHub.
 
-The data have been laoded into an xarray `DataArray`, which can be accessed through the `da` property:
+The data have been loaded into an xarray `DataArray`, which can be accessed through the `da` property:
 ```python
 >>> print(g.da)
 <xarray.DataArray (band: 3, y: 718, x: 791)>
