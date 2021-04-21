@@ -1,10 +1,12 @@
 [![Basic Model Interface](https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg)](https://bmi.readthedocs.io/)
+[![PyPI](https://img.shields.io/pypi/v/bmi-geotiff)](https://pypi.org/project/bmi-geotiff)
+[![Documentation Status](https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest)](https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest)
 
 # bmi-geotiff
 
 Access data (and metadata) from a GeoTIFF file through an API or a BMI.
 
-The *bmi-geotiff* API accepts a filepath or an URL to a GeoTIFF file.
+The *bmi-geotiff* library accepts a filepath or an URL to a GeoTIFF file.
 Data are loaded into an
 [xarray](http://xarray.pydata.org/en/stable/)
 [DataArray](http://xarray.pydata.org/en/stable/api.html#dataarray)
@@ -32,7 +34,7 @@ the *bmi-geotiff* library can be built and installed from source.
 The library uses several other open source libraries,
 so a convenient way of building and installing it is within a
 [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
-After cloning or downloding the *bmi-geotiff*
+After cloning or downloading the *bmi-geotiff*
 [repository](https://github.com/csdms/bmi-geotiff),
 change into the repository directory
 and set up a conda environment with the included environment file:
@@ -66,7 +68,7 @@ Make an instance of `GeoTiff` with this URL:
 ```
 This step might take a few moments as the data are pulled from GitHub.
 
-The data have been laoded into an xarray `DataArray`, which can be accessed through the `da` property:
+The data have been loaded into an xarray `DataArray`, which can be accessed through the `da` property:
 ```python
 >>> print(g.da)
 <xarray.DataArray (band: 3, y: 718, x: 791)>
@@ -93,19 +95,12 @@ Display the image with the [xarray.plot.imshow](http://xarray.pydata.org/en/stab
 >>> plt.show()
 ```
 
-![Example GeoTiff display](./examples/example-rgb.png)
+![Example GeoTiff display through *xarray*.](./examples/example-rgb.png)
 
 For examples with more detail,
 see the Jupyter Notebooks and Python scripts
 included in the [examples](https://github.com/csdms/bmi-geotiff/tree/main/examples) directory
 of the *bmi-geotiff* repository.
 
-## Documentation
-
-Documentation for the *bmi-geotiff* API
+Documentation for *bmi-geotiff*
 is available at https://bmi-geotiff.readthedocs.io.
-
-## Acknowledgments
-
-This work is supported by the National Science Foundation under Award No. [1831623](https://nsf.gov/awardsearch/showAward?AWD_ID=1831623),
-*Community Facility Support: The Community Surface Dynamics Modeling System (CSDMS)*.
