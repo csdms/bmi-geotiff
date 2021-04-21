@@ -1,4 +1,4 @@
-|Basic Model Interface| |PyPI|
+|Basic Model Interface| |PyPI| |Documentation Status|
 
 bmi-geotiff
 ===========
@@ -36,7 +36,7 @@ Alternately, the *bmi-geotiff* library can be built and installed from
 source. The library uses several other open source libraries, so a
 convenient way of building and installing it is within a `conda
 environment <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`__.
-After cloning or downloding the *bmi-geotiff*
+After cloning or downloading the *bmi-geotiff*
 `repository <https://github.com/csdms/bmi-geotiff>`__, change into the
 repository directory and set up a conda environment with the included
 environment file:
@@ -129,3 +129,5 @@ https://bmi-geotiff.readthedocs.io.
    :target: https://bmi.readthedocs.io/
 .. |PyPI| image:: https://img.shields.io/pypi/v/bmi-geotiff
    :target: https://pypi.org/project/bmi-geotiff
+.. |Documentation Status| image:: https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest
+   :target: https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest
