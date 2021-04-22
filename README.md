@@ -1,5 +1,6 @@
 [![Basic Model Interface](https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg)](https://bmi.readthedocs.io/)
 [![PyPI](https://img.shields.io/pypi/v/bmi-geotiff)](https://pypi.org/project/bmi-geotiff)
+[![Build/Test CI](https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest)](https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest)
 
 # bmi-geotiff
