@@ -28,6 +28,11 @@ jobs:
           channels: conda-forge
           channel-priority: true
 
+      - name: Show conda installation info
+        run: |
+          conda info
+          conda list
+
       - name: Build and install package
         run: make install
 
