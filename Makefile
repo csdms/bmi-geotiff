@@ -79,7 +79,8 @@ docs: ## generate Sphinx HTML documentation, including API docs and link check
 	$(BROWSER) docs/build/html/index.html
 
 setup: ## generate a setup.py file for release tools
-	echo "import setuptools\n\nsetuptools.setup()" >> setup.py
+	echo "import setuptools" >> setup.py
+	echo "setuptools.setup()" >> setup.py
 
 build: clean setup ## build and package a release
 	python setup.py sdist
