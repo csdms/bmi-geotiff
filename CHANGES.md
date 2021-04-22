@@ -5,6 +5,7 @@ Changes for bmi-geotiff
 ----------------
 
 - Add user and API documentation, deplot to Read the Docs (#3)
+- Set up CI tasks using GitHub Actions (#4)
 
 
 0.1 (2021-04-16)
