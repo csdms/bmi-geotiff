@@ -485,9 +485,7 @@ class BmiGeoTiff(Bmi):
         elif name == self._output_var_names[2]:
             dest[:] = self._da.attrs["transform"]
         else:
-            raise ValueError(
-                "get_value not available for %s." % (name,)
-            )
+            raise ValueError("get_value not available for %s." % (name,))
 
         return dest
 
@@ -514,9 +512,7 @@ class BmiGeoTiff(Bmi):
             dest[:] = self.get_value_ptr(name).reshape(-1)[inds]
             return dest
         else:
-            raise ValueError(
-                "get_value_at_indices not available for %s." % (name,)
-            )
+            raise ValueError("get_value_at_indices not available for %s." % (name,))
 
     def get_value_ptr(self, name: str) -> numpy.ndarray:
         """Get a reference to values of the given variable.
@@ -538,9 +534,7 @@ class BmiGeoTiff(Bmi):
         if name == self._output_var_names[0]:
             return self._da.values
         else:
-            raise ValueError(
-                "get_value_ptr not available for %s." % (name,)
-            )
+            raise ValueError("get_value_ptr not available for %s." % (name,))
 
     def get_var_grid(self, name: str) -> int:
         """Get grid identifier for the given variable.
@@ -734,7 +728,7 @@ class BmiGeoTiff(Bmi):
             self._output_var_names[2]: BmiVar(
                 dtype=type(self._da.attrs["transform"][0]).__name__,
                 itemsize=SIZEOF_FLOAT,
-                nbytes=len(self._da.attrs["transform"])*SIZEOF_FLOAT,
+                nbytes=len(self._da.attrs["transform"]) * SIZEOF_FLOAT,
                 location="none",
                 units="m",
                 grid=2,

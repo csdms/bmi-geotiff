@@ -5,15 +5,15 @@ and it uses the sample GeoTIFF image "RGB.byte.tif" from the rasterio project.
 """
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
-from bmi_geotiff import GeoTiff
 
+from bmi_geotiff import GeoTiff
 
 tif_file = "RGB.byte.tif"
 
 g = GeoTiff(tif_file)
 print(g.da)
 
-crs = ccrs.UTM('18N')
+crs = ccrs.UTM("18N")
 ax = plt.subplot(projection=crs)
-g.da.plot.imshow(ax=ax, rgb='band', transform=crs)
+g.da.plot.imshow(ax=ax, rgb="band", transform=crs)
 plt.show()

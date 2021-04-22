@@ -55,8 +55,8 @@ lint: ## check style with flake8
 	flake8 bmi_geotiff tests
 
 pretty: ## reformat files to make them look pretty
-	find bmi_geotiff tests docs -name '*.py' | xargs isort
-	black bmi_geotiff tests docs
+	find bmi_geotiff tests examples docs -name '*.py' | xargs isort
+	black bmi_geotiff tests examples docs
 
 test: ## run tests quickly with the default Python
 	pytest --disable-warnings --cov=bmi_geotiff --cov-report=xml:./coverage.xml -vvv
@@ -79,7 +79,8 @@ docs: ## generate Sphinx HTML documentation, including API docs and link check
 	$(BROWSER) docs/build/html/index.html
 
 setup: ## generate a setup.py file for release tools
-	echo "import setuptools\n\nsetuptools.setup()" >> setup.py
+	echo "import setuptools" >> setup.py
+	echo "setuptools.setup()" >> setup.py
 
 build: clean setup ## build and package a release
 	python setup.py sdist
