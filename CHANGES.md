@@ -1,7 +1,7 @@
 Changes for bmi-geotiff
 =======================
 
-0.2 (unreleased)
+0.2 (2021-04-22)
 ----------------
 
 - Add user and API documentation, deplot to Read the Docs (#3)
