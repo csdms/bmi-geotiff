@@ -1,4 +1,5 @@
-|Basic Model Interface| |PyPI| |Documentation Status|
+|Basic Model Interface| |PyPI| |Conda Version| |Build/Test CI|
+|Documentation Status|
 
 bmi-geotiff
 ===========
@@ -129,5 +130,9 @@ https://bmi-geotiff.readthedocs.io.
    :target: https://bmi.readthedocs.io/
 .. |PyPI| image:: https://img.shields.io/pypi/v/bmi-geotiff
    :target: https://pypi.org/project/bmi-geotiff
+.. |Conda Version| image:: https://img.shields.io/conda/vn/conda-forge/bmi-geotiff.svg
+   :target: https://anaconda.org/conda-forge/bmi-geotiff
+.. |Build/Test CI| image:: https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml/badge.svg
+   :target: https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml
 .. |Documentation Status| image:: https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest
    :target: https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest
