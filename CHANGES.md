@@ -4,7 +4,7 @@ Changes for bmi-geotiff
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add DOI and CITATION document
 
 
 0.2 (2021-04-22)
