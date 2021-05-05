@@ -5,6 +5,7 @@ Changes for bmi-geotiff
 ----------------
 
 - Add DOI and CITATION document
+- Remove dimensions of length 1 (#5)
 
 
 0.2 (2021-04-22)
