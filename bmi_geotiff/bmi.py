@@ -359,7 +359,7 @@ class BmiGeoTiff(Bmi):
         ndarray of float
             The input numpy array that holds the grid's layer z-coordinates.
         """
-        if grid == 0:
+        if grid == 0 and self._da.ndim > 2:
             z[:] = self._da.band.values
         else:
             z[:] = 0
@@ -691,11 +691,7 @@ class BmiGeoTiff(Bmi):
 
         self._grid = {
             0: BmiGridRectilinear(
-                shape=(
-                    self._da.sizes["band"],
-                    self._da.sizes["y"],
-                    self._da.sizes["x"],
-                ),
+                shape=tuple(self._da.sizes.values()),
                 type="rectilinear",
             ),
             1: BmiGridNone(
