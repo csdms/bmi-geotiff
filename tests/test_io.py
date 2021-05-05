@@ -52,3 +52,14 @@ def test_open(shared_datadir):
     g.open(f)
     assert g.filename == f
     assert isinstance(g.da, DataArray)
+
+
+def test_squeeze_band():
+    g = GeoTiff(TEST_URL)
+    assert g.da.ndim != 3
+
+
+def test_no_squeeze_band(shared_datadir):
+    f = Path(shared_datadir) / TEST_FILE
+    g = GeoTiff(f)
+    assert g.da.band.size == 3
