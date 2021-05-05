@@ -8,7 +8,9 @@ from xarray import DataArray
 from bmi_geotiff import GeoTiff
 
 TEST_FILE = "RGB.byte.tif"
-TEST_URL = "https://csdms.colorado.edu/data/LE07_L1GT_103064_20210412_20210412_02_RT_B1.TIF"
+TEST_URL = (
+    "https://csdms.colorado.edu/data/LE07_L1GT_103064_20210412_20210412_02_RT_B1.TIF"
+)
 
 
 def test_instantiate_without_filename():
