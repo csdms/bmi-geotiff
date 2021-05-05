@@ -4,7 +4,7 @@ Changes for bmi-geotiff
 0.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix shapes in BMI (#6)
 
 
 0.2.1 (2021-05-05)
