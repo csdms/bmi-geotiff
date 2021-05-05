@@ -8,6 +8,7 @@ from xarray import DataArray
 from bmi_geotiff import GeoTiff
 
 TEST_FILE = "RGB.byte.tif"
+TEST_URL = "https://csdms.colorado.edu/data/LE07_L1GT_103064_20210412_20210412_02_RT_B1.TIF"
 
 
 def test_instantiate_without_filename():
@@ -35,6 +36,13 @@ def test_with_filename_as_keyword(shared_datadir):
     g = GeoTiff(filename=f)
     assert isinstance(g, GeoTiff)
     assert g.filename == f
+    assert isinstance(g.da, DataArray)
+
+
+def test_with_filename_as_url():
+    g = GeoTiff(TEST_URL)
+    assert isinstance(g, GeoTiff)
+    assert g.filename == TEST_URL
     assert isinstance(g.da, DataArray)
 
 
