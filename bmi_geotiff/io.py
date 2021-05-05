@@ -40,7 +40,7 @@ class GeoTiff:
         self._da = xr.open_rasterio(self._filename)
         try:
             band = self._da.squeeze("band")
-        except:
+        except ValueError:
             pass
         else:
             self._da = band
