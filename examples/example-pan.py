@@ -12,8 +12,5 @@ g = GeoTiff()
 g.open(url)
 print(g.da)
 
-band = g.da.squeeze("band")
-print(band)
-
-band.plot.imshow()
+g.da.plot.imshow()
 plt.show()

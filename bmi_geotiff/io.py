@@ -38,3 +38,9 @@ class GeoTiff:
         """
         self._filename = filename
         self._da = xr.open_rasterio(self._filename)
+        try:
+            band = self._da.squeeze("band")
+        except ValueError:
+            pass
+        else:
+            self._da = band

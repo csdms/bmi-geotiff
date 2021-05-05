@@ -52,7 +52,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 bmi_geotiff tests
+	flake8 bmi_geotiff tests examples
 
 pretty: ## reformat files to make them look pretty
 	find bmi_geotiff tests examples docs -name '*.py' | xargs isort
