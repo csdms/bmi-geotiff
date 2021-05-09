@@ -714,9 +714,9 @@ class BmiGeoTiff(Bmi):
                 grid=0,
             ),
             self._output_var_names[1]: BmiVar(
-                dtype="<U1",
-                itemsize=1,
-                nbytes=len(self._da.attrs["crs"]),
+                dtype="U{}".format(len(self._da.attrs["crs"])),
+                itemsize=len(self._da.attrs["crs"]) * SIZEOF_FLOAT,
+                nbytes=len(self._da.attrs["crs"]) * SIZEOF_FLOAT,
                 location="none",
                 units="1",
                 grid=1,
