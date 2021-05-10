@@ -1,7 +1,7 @@
 Changes for bmi-geotiff
 =======================
 
-0.2.3 (unreleased)
+0.2.3 (2021-05-09)
 ------------------
 
 - Modify how the BMI treats the projection string variable (#7)
