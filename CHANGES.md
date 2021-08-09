@@ -4,7 +4,7 @@ Changes for bmi-geotiff
 0.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use CITATION.cff file
 
 
 0.2.3 (2021-05-09)
