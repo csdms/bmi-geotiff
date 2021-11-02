@@ -61,7 +61,7 @@ Start a Python session and import the `GeoTiff` class:
 For convenience,
 let's use a test image from the [rasterio](https://rasterio.readthedocs.io) project: 
 ```python
->>> url = "https://github.com/mapbox/rasterio/raw/master/tests/data/RGB.byte.tif"
+>>> url = "https://github.com/rasterio/rasterio/raw/master/tests/data/RGB.byte.tif"
 ```
 
 Make an instance of `GeoTiff` with this URL:
