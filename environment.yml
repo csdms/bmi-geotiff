@@ -25,5 +25,6 @@ dependencies:
   - notebook
   - matplotlib
   - cartopy
+  - build
   - pip:
     - zest.releaser
