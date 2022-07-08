@@ -62,7 +62,7 @@ bmi-geotiff = "bmi_geotiff.cli:main"
 
 [tool.setuptools.dynamic]
 readme = {file = ["README.md", "CREDITS.md", "LICENSE.md"], content-type = "text/markdown"}
-version = {attr = "geotiff._version.__version__"}
+version = {attr = "bmi_geotiff._version.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
