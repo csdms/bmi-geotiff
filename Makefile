@@ -83,11 +83,11 @@ setup: ## generate a setup.py file for release tools
 	echo "setuptools.setup()" >> setup.py
 
 build: clean setup ## build and package a release
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python -m build
 	ls -l dist
 
 testpypi: build ## upload a release to TestPyPI
+	twine check dist/*
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 pypi: build ## upload a release to PyPI

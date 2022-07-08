@@ -10,7 +10,6 @@ dependencies:
   - rasterio
   - bmipy
   - make
-  - setuptools-scm
   - black
   - flake8
   - isort >=5
@@ -25,5 +24,6 @@ dependencies:
   - notebook
   - matplotlib
   - cartopy
+  - build
   - pip:
     - zest.releaser

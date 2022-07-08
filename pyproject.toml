@@ -1,12 +1,75 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel",
-    "setuptools_scm[toml]>=3.4"
-]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools_scm]
+[project]
+name = "bmi-geotiff"
+description = "Access data and metadata in a GeoTIFF file through an API or a BMI"
+authors = [
+  {name = "Mark Piper", email = "mark.piper@colorado.edu"},
+]
+keywords = [
+  "bmi",
+  "geotiff",
+  "raster",
+  "data",
+]
+license = {text = "MIT License"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Education",
+  "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.7"
+dependencies = [
+  "requests",
+  "numpy",
+  "click",
+  "pyyaml",
+  "xarray",
+  "rasterio",
+  "bmipy",
+]
+dynamic = ["readme", "version"]
+
+[project.urls]
+Homepage = "https://github.com/csdms/bmi-geotiff"
+Documentation = "https://bmi-geotiff.readthedocs.io/"
+Repository = "https://github.com/csdms/bmi-geotiff"
+Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
+
+[project.optional-dependencies]
+testing = [
+  "black",
+  "flake8",
+  "isort >=5",
+  "pytest",
+  "pytest-cov",
+  "pytest-datadir",
+  "coveralls",
+]
+examples = [
+  "cartopy",
+  "matplotlib",
+]
+
+[project.scripts]
+bmi-geotiff = "bmi_geotiff.cli:main"
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md", "CREDITS.md", "LICENSE.md"], content-type = "text/markdown"}
+version = {attr = "bmi_geotiff._version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = [
+  "bmi_geotiff.tests*",
+  "bmi_geotiff.examples*",
+]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
