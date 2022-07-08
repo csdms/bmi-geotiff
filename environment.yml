@@ -10,7 +10,6 @@ dependencies:
   - rasterio
   - bmipy
   - make
-  - setuptools-scm
   - black
   - flake8
   - isort >=5

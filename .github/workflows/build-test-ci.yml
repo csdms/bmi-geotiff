@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.8, 3.9]
+        python-version: ["3.8", "3.9", "3.10"]
 
     steps:
       - uses: actions/checkout@v2
@@ -45,5 +45,9 @@ jobs:
 
       - name: Test
         run: |
-          make test
-          make bmi-test
+          pytest --cov=bmi_topography --cov-report=xml:./coverage.xml --cov-config=./setup.cfg -vvv
+          bmi-test bmi_topography:BmiTopography --config-file=./examples/config.yaml --root-dir=./examples -vvv
+
+      - name: Coveralls
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.8'
+        uses: AndreMiras/coveralls-python-action@v20201129
