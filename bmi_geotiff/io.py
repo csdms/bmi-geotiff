@@ -1,5 +1,5 @@
 """Access GeoTIFF files."""
-import xarray as xr
+import rioxarray
 
 
 class GeoTiff:
@@ -14,8 +14,8 @@ class GeoTiff:
         filename : str, optional
             Path or URL to the file to open.
         """
-        self._da = None
         self._filename = None
+        self._da = None
 
         if filename is not None:
             self.open(filename)
@@ -37,7 +37,7 @@ class GeoTiff:
             Path or URL to the file to open.
         """
         self._filename = filename
-        self._da = xr.open_rasterio(self._filename)
+        self._da = rioxarray.open_rasterio(self._filename)
         try:
             band = self._da.squeeze("band")
         except ValueError:
