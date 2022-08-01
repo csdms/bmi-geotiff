@@ -722,7 +722,7 @@ class BmiGeoTiff(Bmi):
                 grid=1,
             ),
             self._output_var_names[2]: BmiVar(
-                dtype=type(self._da.rio.transform().a),
+                dtype=type(self._da.rio.transform().a).__name__,
                 itemsize=SIZEOF_FLOAT,
                 nbytes=len(self._da.rio.transform()) * SIZEOF_FLOAT,
                 location="none",
