@@ -1,5 +1,6 @@
 """Access GeoTIFF files."""
 import rioxarray
+from rasterio.crs import CRS
 
 
 class GeoTiff:
@@ -44,3 +45,9 @@ class GeoTiff:
             pass
         else:
             self._da = band
+
+        crs = CRS.from_wkt(self._da.spatial_ref.crs_wkt)
+        if crs.is_projected:
+            self._da.attrs["units"] = crs.linear_units
+        else:
+            self._da.attrs["units"] = "degrees"
