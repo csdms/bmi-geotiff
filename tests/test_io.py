@@ -54,6 +54,7 @@ def test_open(shared_datadir):
     g.open(f)
     assert g.filename == f
     assert isinstance(g.da, DataArray)
+    assert g.da.attrs["units"] is not None
 
 
 def test_squeeze_band():
