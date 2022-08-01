@@ -481,9 +481,9 @@ class BmiGeoTiff(Bmi):
         if name == self._output_var_names[0]:
             dest[:] = self.get_value_ptr(name).reshape(-1).copy()
         elif name == self._output_var_names[1]:
-            dest[:] = self._da.attrs["crs"]
+            dest[:] = self._da.spatial_ref.crs_wkt
         elif name == self._output_var_names[2]:
-            dest[:] = self._da.attrs["transform"]
+            dest[:] = self._da.rio.transform()
         else:
             raise ValueError("get_value not available for %s." % (name,))
 
@@ -691,7 +691,7 @@ class BmiGeoTiff(Bmi):
 
         self._grid = {
             0: BmiGridRectilinear(
-                shape=tuple(self._da.sizes.values()),
+                shape=self._da.rio.shape,
                 type="rectilinear",
             ),
             1: BmiGridNone(
@@ -699,7 +699,7 @@ class BmiGeoTiff(Bmi):
                 type="none",
             ),
             2: BmiGridNone(
-                shape=numpy.empty(len(self._da.attrs["transform"])).shape,
+                shape=(len(self._da.rio.transform()),),
                 type="none",
             ),
         }
@@ -709,24 +709,24 @@ class BmiGeoTiff(Bmi):
                 dtype=str(self._da.values.dtype),
                 itemsize=self._da.values.itemsize,
                 nbytes=self._da.values.nbytes,
-                location="face",  # from xarray.open_rasterio docs
-                units="1",
+                location="face",  # from rioxarray.open_rasterio docs
+                units=self._da.attrs["units"],
                 grid=0,
             ),
             self._output_var_names[1]: BmiVar(
-                dtype="U{}".format(len(self._da.attrs["crs"])),
-                itemsize=len(self._da.attrs["crs"]) * SIZEOF_FLOAT,
-                nbytes=len(self._da.attrs["crs"]) * SIZEOF_FLOAT,
+                dtype="U{}".format(len(self._da.spatial_ref.crs_wkt)),
+                itemsize=len(self._da.spatial_ref.crs_wkt) * SIZEOF_FLOAT,
+                nbytes=len(self._da.spatial_ref.crs_wkt) * SIZEOF_FLOAT,
                 location="none",
                 units="1",
                 grid=1,
             ),
             self._output_var_names[2]: BmiVar(
-                dtype=type(self._da.attrs["transform"][0]).__name__,
+                dtype=type(self._da.rio.transform().a),
                 itemsize=SIZEOF_FLOAT,
-                nbytes=len(self._da.attrs["transform"]) * SIZEOF_FLOAT,
+                nbytes=len(self._da.rio.transform()) * SIZEOF_FLOAT,
                 location="none",
-                units="m",
+                units=self._da.attrs["units"],
                 grid=2,
             ),
         }
