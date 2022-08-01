@@ -25,8 +25,8 @@ class BmiGeoTiff(Bmi):
     _input_var_names = ()
     _output_var_names = (
         "gis__raster_data",
-        "gis__coordinate_reference_system",
-        "gis__gdal_geotransform",
+        "gis__coordinate_reference_system_well_known_text",
+        "gis__affine_transform",
     )
 
     def __init__(self) -> None:
