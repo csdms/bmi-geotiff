@@ -7,7 +7,7 @@ dependencies:
   - pip
   - pyyaml
   - rioxarray
-  - rasterio
+  - rasterio >=1.0
   - bmipy
   - make
   - black
