@@ -6,8 +6,8 @@ dependencies:
   - python =3
   - pip
   - pyyaml
-  - xarray
-  - rasterio
+  - rioxarray
+  - rasterio >=1.0
   - bmipy
   - make
   - black

@@ -1,5 +1,6 @@
 """Access GeoTIFF files."""
-import xarray as xr
+import rioxarray
+from rasterio.crs import CRS
 
 
 class GeoTiff:
@@ -14,8 +15,8 @@ class GeoTiff:
         filename : str, optional
             Path or URL to the file to open.
         """
-        self._da = None
         self._filename = None
+        self._da = None
 
         if filename is not None:
             self.open(filename)
@@ -37,10 +38,16 @@ class GeoTiff:
             Path or URL to the file to open.
         """
         self._filename = filename
-        self._da = xr.open_rasterio(self._filename)
+        self._da = rioxarray.open_rasterio(self._filename)
         try:
             band = self._da.squeeze("band")
         except ValueError:
             pass
         else:
             self._da = band
+
+        crs = CRS.from_wkt(self._da.spatial_ref.crs_wkt)
+        if crs.is_projected:
+            self._da.attrs["units"] = crs.linear_units
+        else:
+            self._da.attrs["units"] = "degrees"

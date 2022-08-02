@@ -26,12 +26,11 @@ classifiers = [
 ]
 requires-python = ">=3.7"
 dependencies = [
-  "requests",
   "numpy",
-  "click",
   "pyyaml",
   "xarray",
   "rasterio",
+  "rioxarray",
   "bmipy",
 ]
 dynamic = ["readme", "version"]
