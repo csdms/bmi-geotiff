@@ -691,7 +691,7 @@ class BmiGeoTiff(Bmi):
 
         self._grid = {
             0: BmiGridRectilinear(
-                shape=self._da.rio.shape,
+                shape=self._da.shape,
                 type="rectilinear",
             ),
             1: BmiGridNone(
