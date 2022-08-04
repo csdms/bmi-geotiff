@@ -13,7 +13,7 @@ tif_file = "RGB.byte.tif"
 g = GeoTiff(tif_file)
 print(g.da)
 
-crs = ccrs.UTM("18N")
+crs = ccrs.UTM("18")
 ax = plt.subplot(projection=crs)
 g.da.plot.imshow(ax=ax, rgb="band", transform=crs)
 plt.show()
