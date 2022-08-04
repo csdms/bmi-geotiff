@@ -65,10 +65,7 @@ version = {attr = "bmi_geotiff._version.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = [
-  "bmi_geotiff.tests*",
-  "bmi_geotiff.examples*",
-]
+include = ["bmi_geotiff*"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
