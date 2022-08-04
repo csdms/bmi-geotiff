@@ -4,7 +4,10 @@ Changes for bmi-geotiff
 0.2.4 (unreleased)
 ------------------
 
-- Use CITATION.cff file
+- Fix source and binary distributions (#17)
+- Switch from xarray to rioxarray (#15)
+- Move metadata from setup.cfg to pyproject.toml (#14)
+- Use CITATION.cff file (#8)
 
 
 0.2.3 (2021-05-09)
