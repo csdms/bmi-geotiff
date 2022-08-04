@@ -1,8 +1,8 @@
 Changes for bmi-geotiff
 =======================
 
-0.2.4 (unreleased)
-------------------
+0.3 (2022-08-04)
+----------------
 
 - Fix source and binary distributions (#17)
 - Switch from xarray to rioxarray (#15)
