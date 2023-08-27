@@ -9,10 +9,7 @@ dependencies:
   - rioxarray
   - rasterio >=1.0
   - bmipy
-  - make
-  - black
-  - flake8
-  - isort >=5
+  - nox
   - pytest
   - pytest-cov
   - pytest-datadir
@@ -25,5 +22,5 @@ dependencies:
   - matplotlib
   - cartopy
   - build
-  - pip:
-    - zest.releaser
+  - twine
+  - zest.releaser
