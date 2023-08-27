@@ -40,7 +40,7 @@ def test_bmi(session: nox.Session) -> None:
     session.install(".")
     session.run(
         "bmi-test",
-        f"{PACKAGE}:BmiGeotiff",
+        f"{PACKAGE}:BmiGeoTiff",
         "--config-file",
         "./examples/config.yaml",
         "--root-dir",
