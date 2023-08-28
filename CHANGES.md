@@ -4,7 +4,7 @@ Changes for bmi-geotiff
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Update build and test process #19
 
 
 0.3 (2022-08-04)
