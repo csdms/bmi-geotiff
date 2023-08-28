@@ -1,8 +1,8 @@
 Changes for bmi-geotiff
 =======================
 
-0.4 (unreleased)
-----------------
+0.3.1 (2023-08-28)
+------------------
 
 - Update build and test process #19
 
