@@ -1,17 +1,16 @@
-name: Documentation
+name: Format
 
 on: [push, pull_request]
 
 jobs:
 
-  build:
-    name: Build documentation
+  format:
+    name: Check for lint and format code to a standard style
     if:
       github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
       github.repository
 
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -21,8 +20,8 @@ jobs:
           python-version: 3.11
           auto-activate-base: false
 
-      - name: Install dependencies
+      - name: Install nox
         run: pip install nox
 
-      - name: Build documentation
-        run: nox -s build-docs
+      - name: Format code
+        run: nox -s format -- --check --verbose --diff

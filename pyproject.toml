@@ -42,14 +42,28 @@ Repository = "https://github.com/csdms/bmi-geotiff"
 Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
 
 [project.optional-dependencies]
-testing = [
+dev = [
   "black",
   "flake8",
-  "isort >=5",
+  "isort",
+  "nox",
+]
+build = [
+  "build",
+  "twine",
+  "zest.releaser"
+]
+testing = [
   "pytest",
   "pytest-cov",
   "pytest-datadir",
+  "coverage",
   "coveralls",
+]
+docs = [
+  "sphinx",
+  "recommonmark",
+  "pandoc",
 ]
 examples = [
   "cartopy",
