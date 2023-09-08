@@ -1,10 +1,21 @@
-cff-version: 1.1.0
-message: "If you use this software, please cite it as below."
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it as below.
+type: software
+title: "CSDMS GeoTIFF data component"
 authors:
   - family-names: Piper
     given-names: Mark
     orcid: https://orcid.org/0000-0001-6418-277X
-title: "CSDMS GeoTIFF data component"
-version: 0.2.3
-doi: 10.5281/zenodo.4721475
-date-released: 2021-04-26
+url: 'https://github.com/csdms/bmi-geotiff'
+abstract: >-
+  Access data and metadata from a GeoTIFF file through a BMI.
+keywords:
+  - python
+  - geotiff
+  - bmi
+  - csdms
+license: MIT License
+version: 0.3.1
+doi: 10.5281/zenodo.8327418
+date-released: 2023-09-07
