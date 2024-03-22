@@ -1,7 +1,7 @@
 Changes for bmi-geotiff
 =======================
 
-0.3.2 (unreleased)
+## 0.3.2 (2024-03-22)
 ------------------
 
 - Test with Python 3.12 (#25)
