@@ -17,6 +17,9 @@ keywords = [
 license = {text = "MIT License"}
 classifiers = [
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Intended Audience :: Developers",
@@ -24,7 +27,7 @@ classifiers = [
   "Intended Audience :: Education",
   "Topic :: Scientific/Engineering",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 dependencies = [
   "numpy",
   "pyyaml",
