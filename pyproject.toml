@@ -17,6 +17,9 @@ keywords = [
 license = {text = "MIT License"}
 classifiers = [
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Intended Audience :: Developers",
@@ -24,7 +27,7 @@ classifiers = [
   "Intended Audience :: Education",
   "Topic :: Scientific/Engineering",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 dependencies = [
   "numpy",
   "pyyaml",
@@ -36,7 +39,7 @@ dependencies = [
 dynamic = ["readme", "version"]
 
 [project.urls]
-Homepage = "https://github.com/csdms/bmi-geotiff"
+Homepage = "https://csdms.colorado.edu"
 Documentation = "https://bmi-geotiff.readthedocs.io/"
 Repository = "https://github.com/csdms/bmi-geotiff"
 Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
@@ -88,7 +91,7 @@ norecursedirs = [".*", "*.egg*", "build", "dist"]
 addopts = """
   --ignore setup.py
   --tb native
-  --strict
+  --strict-markers
   --durations 16
   --doctest-modules
   -vvv
@@ -105,3 +108,10 @@ include_trailing_comma = true
 force_grid_wrap = 0
 combine_as_imports = true
 line_length = 88
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.zest-releaser]
+tag-format = "v{version}"
+python-file-with-version = "bmi_geotiff/_version.py"
