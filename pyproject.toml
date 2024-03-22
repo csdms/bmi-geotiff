@@ -108,3 +108,10 @@ include_trailing_comma = true
 force_grid_wrap = 0
 combine_as_imports = true
 line_length = 88
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.zest-releaser]
+tag-format = "v{version}"
+python-file-with-version = "bmi_geotiff/_version.py"
