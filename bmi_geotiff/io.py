@@ -1,10 +1,10 @@
 """Access GeoTIFF files."""
+
 import rioxarray
 from rasterio.crs import CRS
 
 
 class GeoTiff:
-
     """Access data and metadata in a GeoTIFF file."""
 
     def __init__(self, filename=None):

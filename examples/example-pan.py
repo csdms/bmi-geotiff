@@ -2,6 +2,7 @@
 
 The data used are band 1 of Landsat 7 ETM scene LE71030642021102ASA00.
 """
+
 import matplotlib.pyplot as plt
 
 from bmi_geotiff import GeoTiff
