@@ -3,6 +3,7 @@
 The example is adapted from http://xarray.pydata.org/en/stable/examples/visualization_gallery.html#imshow()-and-rasterio-map-projections,
 and it uses the sample GeoTIFF image "RGB.byte.tif" from the rasterio project.
 """
+
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 

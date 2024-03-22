@@ -18,7 +18,6 @@ BmiGridNone = namedtuple("BmiGridNone", ["shape", "type"])
 
 
 class BmiGeoTiff(Bmi):
-
     """BMI-mediated access to data and metadata in a GeoTIFF file."""
 
     _name = "bmi-geotiff"
