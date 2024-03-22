@@ -4,6 +4,7 @@ Changes for bmi-geotiff
 0.3.2 (unreleased)
 ------------------
 
+- Test with Python 3.12 (#25)
 - Link to project contributing and code of conduct docs (#23)
 - Update citation file to cff 1.2.0
 
