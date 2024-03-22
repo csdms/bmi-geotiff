@@ -36,7 +36,7 @@ def test(session: nox.Session) -> None:
 @nox.session(name="test-bmi", python=PYTHON_VERSIONS, venv_backend="conda")
 def test_bmi(session: nox.Session) -> None:
     """Test the Basic Model Interface."""
-    session.conda_install("bmi-tester", "pymt>=1.3")
+    session.conda_install("bmi-tester", "gimli.units")
     session.install(".")
     session.run(
         "bmi-test",
