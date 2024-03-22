@@ -39,7 +39,7 @@ dependencies = [
 dynamic = ["readme", "version"]
 
 [project.urls]
-Homepage = "https://github.com/csdms/bmi-geotiff"
+Homepage = "https://csdms.colorado.edu"
 Documentation = "https://bmi-geotiff.readthedocs.io/"
 Repository = "https://github.com/csdms/bmi-geotiff"
 Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
@@ -91,7 +91,7 @@ norecursedirs = [".*", "*.egg*", "build", "dist"]
 addopts = """
   --ignore setup.py
   --tb native
-  --strict
+  --strict-markers
   --durations 16
   --doctest-modules
   -vvv
