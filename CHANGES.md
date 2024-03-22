@@ -4,13 +4,14 @@ Changes for bmi-geotiff
 0.3.2 (unreleased)
 ------------------
 
+- Link to project contributing and code of conduct docs (#23)
 - Update citation file to cff 1.2.0
 
 
 0.3.1 (2023-08-28)
 ------------------
 
-- Update build and test process #19
+- Update build and test process (#19)
 
 
 0.3 (2022-08-04)
