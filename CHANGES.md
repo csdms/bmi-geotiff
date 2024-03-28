@@ -1,28 +1,23 @@
-Changes for bmi-geotiff
-=======================
+# Changes for bmi-geotiff
 
 ## 0.3.3 (unreleased)
----------------------
 
 - Nothing changed yet.
 
 
 ## 0.3.2 (2024-03-22)
-------------------
 
 - Test with Python 3.12 (#25)
 - Link to project contributing and code of conduct docs (#23)
 - Update citation file to cff 1.2.0
 
 
-0.3.1 (2023-08-28)
-------------------
+## 0.3.1 (2023-08-28)
 
 - Update build and test process (#19)
 
 
-0.3 (2022-08-04)
-----------------
+## 0.3 (2022-08-04)
 
 - Fix source and binary distributions (#17)
 - Switch from xarray to rioxarray (#15)
@@ -30,34 +25,29 @@ Changes for bmi-geotiff
 - Use CITATION.cff file (#8)
 
 
-0.2.3 (2021-05-09)
-------------------
+## 0.2.3 (2021-05-09)
 
 - Modify how the BMI treats the projection string variable (#7)
 
 
-0.2.2 (2021-05-05)
-------------------
+## 0.2.2 (2021-05-05)
 
 - Fix shapes in BMI (#6)
 
 
-0.2.1 (2021-05-05)
-------------------
+## 0.2.1 (2021-05-05)
 
 - Add DOI and CITATION document
 - Remove dimensions of length 1 (#5)
 
 
-0.2 (2021-04-22)
-----------------
+## 0.2 (2021-04-22)
 
 - Add user and API documentation, deplot to Read the Docs (#3)
 - Set up CI tasks using GitHub Actions (#4)
 
 
-0.1 (2021-04-16)
-----------------
+## 0.1 (2021-04-16)
 
 - Create base library that uses xarray
 - Write tests for library

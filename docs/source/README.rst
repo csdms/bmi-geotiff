@@ -1,5 +1,4 @@
-|Basic Model Interface| |PyPI| |Conda Version| |Build/Test CI|
-|Documentation Status|
+|DOI| |PyPI| |Conda Version| |Build/Test CI| |Documentation Status|
 
 bmi-geotiff
 ===========
@@ -158,8 +157,8 @@ directory of the *bmi-geotiff* repository.
 Documentation for *bmi-geotiff* is available at
 https://bmi-geotiff.readthedocs.io.
 
-.. |Basic Model Interface| image:: https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg
-   :target: https://bmi.readthedocs.io/
+.. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.8327418.svg
+   :target: https://doi.org/10.5281/zenodo.8327418
 .. |PyPI| image:: https://img.shields.io/pypi/v/bmi-geotiff
    :target: https://pypi.org/project/bmi-geotiff
 .. |Conda Version| image:: https://img.shields.io/conda/vn/conda-forge/bmi-geotiff.svg
