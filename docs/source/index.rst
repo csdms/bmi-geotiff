@@ -2,27 +2,44 @@
 
 .. include:: README.rst
 
+Additional Information
+----------------------
 
 API Reference
-=============
+.............
 
 Looking for information on a particular function, class, or method?
 This part of the documentation is for you.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    api/index
 
-
-Additional Information
-======================
+Changelog
+.........
 
 .. toctree::
    :maxdepth: 2
 
-   changelog
-   license
+   CHANGES
+
+Project documents
+.................
+
+.. toctree::
+   :maxdepth: 2
+
+   LICENSE
+   CODE-OF-CONDUCT
+   CONTRIBUTING
+
+Indices and tables
+..................
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 Help
 ----
@@ -36,10 +53,3 @@ Acknowledgments
 This work is supported by the National Science Foundation
 under Award No. `1831623 <https://nsf.gov/awardsearch/showAward?AWD_ID=1831623>`_,
 *Community Facility Support: The Community Surface Dynamics Modeling System (CSDMS)*.
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
