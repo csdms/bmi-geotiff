@@ -34,9 +34,11 @@ jobs:
           miniforge-version: latest
           auto-update-conda: true
 
+      - name: Install nox
+        run: pip install nox
+
       - name: Test Jupyter notebooks
         env:
           MPLBACKEND: "Agg"
         run: |
-          pip install nox
           nox --verbose -s test-notebooks --force-pythons="${{ matrix.python-version }}"
