@@ -49,19 +49,28 @@ def test_bmi(session: nox.Session) -> None:
     )
 
 
+@nox.session(name="test-notebooks", python=PYTHON_VERSIONS[-1])
+def test_notebooks(session: nox.Session) -> None:
+    """Test the notebooks."""
+    session.install(".[testing,examples]")
+    session.install("nbmake")
+
+    args = [
+        "examples",
+        "--nbmake",
+        "--nbmake-kernel=python3",
+        "--nbmake-timeout=3000",
+        "-vvv",
+    ] + session.posargs
+
+    session.run("pytest", *args)
+
+
 @nox.session
-def format(session: nox.Session) -> None:
+def lint(session: nox.Session) -> None:
     """Clean lint and assert style."""
-    session.install(".[dev]")
-
-    if session.posargs:
-        black_args = session.posargs
-    else:
-        black_args = []
-
-    session.run("black", *black_args, *PATHS)
-    session.run("isort", *PATHS)
-    session.run("flake8", *PATHS)
+    session.install("pre-commit")
+    session.run("pre-commit", "run", "--all-files")
 
 
 @nox.session(name="prepare-docs")

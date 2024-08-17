@@ -1,6 +1,10 @@
-name: Format
+name: Lint
 
 on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
 
@@ -12,9 +16,9 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
           python-version: 3.11
@@ -24,4 +28,4 @@ jobs:
         run: pip install nox
 
       - name: Format code
-        run: nox -s format -- --check --verbose --diff
+        run: nox -s lint

@@ -1,11 +1,14 @@
-name: Build/Test CI
+name: Test
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
 
-  build-and-test:
-
+  test:
     if:
       github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
       github.repository
@@ -28,18 +31,10 @@ jobs:
         with:
           miniforge-variant: Mambaforge
           miniforge-version: latest
-          environment-file: environment.yml
-          activate-environment: geotiff
           python-version: ${{ matrix.python-version }}
-          auto-activate-base: false
 
-      - name: Show conda installation info
-        run: |
-          conda info
-          conda list
-
-      - name: Install package
-        run: pip install -e .
+      - name: Install nox
+        run: pip install nox
 
       - name: Test
         run: |
