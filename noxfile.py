@@ -49,6 +49,23 @@ def test_bmi(session: nox.Session) -> None:
     )
 
 
+@nox.session(name="test-notebooks", python=PYTHON_VERSIONS[-1])
+def test_notebooks(session: nox.Session) -> None:
+    """Test the notebooks."""
+    session.install(".[testing,examples]")
+    session.install("nbmake")
+
+    args = [
+        "examples",
+        "--nbmake",
+        "--nbmake-kernel=python3",
+        "--nbmake-timeout=3000",
+        "-vvv",
+    ] + session.posargs
+
+    session.run("pytest", *args)
+
+
 @nox.session
 def lint(session: nox.Session) -> None:
     """Clean lint and assert style."""
