@@ -46,9 +46,6 @@ Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
 
 [project.optional-dependencies]
 dev = [
-  "black",
-  "flake8",
-  "isort",
   "nox",
 ]
 build = [
