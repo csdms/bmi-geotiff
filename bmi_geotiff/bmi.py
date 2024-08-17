@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 from collections import namedtuple
-from typing import Tuple
 
 import numpy
 import yaml
@@ -375,7 +373,7 @@ class BmiGeoTiff(Bmi):
         """
         return len(self._input_var_names)
 
-    def get_input_var_names(self) -> Tuple[str]:
+    def get_input_var_names(self) -> tuple[str]:
         """List of a model's input variables.
 
         Input variable names must be CSDMS Standard Names, also known
@@ -407,7 +405,7 @@ class BmiGeoTiff(Bmi):
         """
         return len(self._output_var_names)
 
-    def get_output_var_names(self) -> Tuple[str]:
+    def get_output_var_names(self) -> tuple[str]:
         """List of a model's output variables.
 
         Output variable names must be CSDMS Standard Names, also known
@@ -484,7 +482,7 @@ class BmiGeoTiff(Bmi):
         elif name == self._output_var_names[2]:
             dest[:] = self._da.rio.transform()
         else:
-            raise ValueError("get_value not available for %s." % (name,))
+            raise ValueError(f"get_value not available for {name}.")
 
         return dest
 
@@ -511,7 +509,7 @@ class BmiGeoTiff(Bmi):
             dest[:] = self.get_value_ptr(name).reshape(-1)[inds]
             return dest
         else:
-            raise ValueError("get_value_at_indices not available for %s." % (name,))
+            raise ValueError(f"get_value_at_indices not available for {name}.")
 
     def get_value_ptr(self, name: str) -> numpy.ndarray:
         """Get a reference to values of the given variable.
@@ -533,7 +531,7 @@ class BmiGeoTiff(Bmi):
         if name == self._output_var_names[0]:
             return self._da.values
         else:
-            raise ValueError("get_value_ptr not available for %s." % (name,))
+            raise ValueError(f"get_value_ptr not available for {name}.")
 
     def get_var_grid(self, name: str) -> int:
         """Get grid identifier for the given variable.
@@ -682,7 +680,7 @@ class BmiGeoTiff(Bmi):
         with placeholder values is used by the BMI.
         """
         if config_file:
-            with open(config_file, "r") as fp:
+            with open(config_file) as fp:
                 self._config = yaml.safe_load(fp).get("bmi-geotiff", {})
         else:
             self._config = {"filename": None}
@@ -713,7 +711,7 @@ class BmiGeoTiff(Bmi):
                 grid=0,
             ),
             self._output_var_names[1]: BmiVar(
-                dtype="U{}".format(len(self._da.spatial_ref.crs_wkt)),
+                dtype=f"U{len(self._da.spatial_ref.crs_wkt)}",
                 itemsize=len(self._da.spatial_ref.crs_wkt) * SIZEOF_FLOAT,
                 nbytes=len(self._da.spatial_ref.crs_wkt) * SIZEOF_FLOAT,
                 location="none",

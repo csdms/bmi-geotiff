@@ -28,7 +28,7 @@ author = "Community Surface Dynamics Modeling System"
 version = pkg_resources.get_distribution("bmi_geotiff").version
 release = version
 this_year = datetime.date.today().year
-copyright = "%s, %s" % (this_year, author)
+copyright = "{}, {}".format(this_year, author)
 
 
 # -- General configuration ---------------------------------------------------
