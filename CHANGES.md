@@ -2,7 +2,9 @@
 
 ## 0.3.3 (unreleased)
 
-- Nothing changed yet.
+- Update CI workflows (#29)
+- De-lint project files (#28)
+- Update docs build (#26)
 
 
 ## 0.3.2 (2024-03-22)
