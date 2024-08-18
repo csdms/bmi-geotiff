@@ -1,6 +1,6 @@
 # Changes for bmi-geotiff
 
-## 0.3.3 (unreleased)
+## 0.3.3 (2024-08-17)
 
 - Update CI workflows (#29)
 - De-lint project files (#28)
