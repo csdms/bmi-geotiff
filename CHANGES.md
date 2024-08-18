@@ -1,5 +1,11 @@
 # Changes for bmi-geotiff
 
+## 0.3.4 (unreleased)
+
+
+- Nothing changed yet.
+
+
 ## 0.3.3 (2024-08-17)
 
 - Update CI workflows (#29)
