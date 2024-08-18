@@ -1,4 +1,4 @@
-|DOI| |PyPI| |Conda Version| |Build/Test CI| |Documentation Status|
+|DOI| |PyPI| |Conda Version| |Test| |Documentation Status|
 
 bmi-geotiff
 ===========
@@ -157,13 +157,13 @@ directory of the *bmi-geotiff* repository.
 Documentation for *bmi-geotiff* is available at
 https://bmi-geotiff.readthedocs.io.
 
-.. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.8327418.svg
-   :target: https://doi.org/10.5281/zenodo.8327418
+.. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4721474.svg
+   :target: https://doi.org/10.5281/zenodo.4721474
 .. |PyPI| image:: https://img.shields.io/pypi/v/bmi-geotiff
    :target: https://pypi.org/project/bmi-geotiff
 .. |Conda Version| image:: https://img.shields.io/conda/vn/conda-forge/bmi-geotiff.svg
    :target: https://anaconda.org/conda-forge/bmi-geotiff
-.. |Build/Test CI| image:: https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml/badge.svg
-   :target: https://github.com/csdms/bmi-geotiff/actions/workflows/build-test-ci.yml
+.. |Test| image:: https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml/badge.svg
+   :target: https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml
 .. |Documentation Status| image:: https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest
    :target: https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest
