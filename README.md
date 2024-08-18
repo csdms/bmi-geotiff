@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8327418.svg)](https://doi.org/10.5281/zenodo.8327418)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4721474.svg)](https://doi.org/10.5281/zenodo.4721474)
 [![PyPI](https://img.shields.io/pypi/v/bmi-geotiff)](https://pypi.org/project/bmi-geotiff)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/bmi-geotiff.svg)](https://anaconda.org/conda-forge/bmi-geotiff)
 [![Test](https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml/badge.svg)](https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml)
