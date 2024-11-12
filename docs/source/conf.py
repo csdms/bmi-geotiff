@@ -10,26 +10,45 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import datetime
+import packaging
+import pathlib
+import re
 
-import pkg_resources
+
+def get_version_from_file(path):
+    with open(path) as fp:
+        match = re.search(r'__version__\s*=\s*[\'"]([^\'"]+)[\'"]', fp.read())
+        if match:
+            version = match.group(1)
+        else:
+            raise ValueError(f"version string not found ({path})")
+    return packaging.version.Version(version)
+
+
+src_dir = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, "bmi_geotiff")
+)
+# sys.path.insert(0, src_dir)
+docs_dir = pathlib.Path(__file__).parent
+version_file = os.path.join(src_dir, "_version.py")
 
 # The master toctree document.
 master_doc = "index"
-
 
 # -- Project information -----------------------------------------------------
 
 project = "bmi-geotiff"
 author = "Community Surface Dynamics Modeling System"
-version = pkg_resources.get_distribution("bmi_geotiff").version
-release = version
 this_year = datetime.date.today().year
 copyright = f"{this_year}, {author}"
 
+v = get_version_from_file(version_file)
+version = f"{v.major}.{v.minor}"
+release = v.public
 
 # -- General configuration ---------------------------------------------------
 
