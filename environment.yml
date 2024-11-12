@@ -21,6 +21,6 @@ dependencies:
   - notebook
   - matplotlib
   - cartopy
-  - build
+  - python-build
   - twine
   - zest.releaser
