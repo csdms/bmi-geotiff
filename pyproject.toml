@@ -49,7 +49,7 @@ dev = [
   "nox",
 ]
 build = [
-  "build",
+  "python-build",
   "twine",
   "zest.releaser"
 ]
