@@ -15,7 +15,7 @@ dependencies:
   - pytest-datadir
   - coveralls
   - bmi-tester
-  - sphinx
+  - sphinx >=8
   - recommonmark
   - pandoc
   - notebook
