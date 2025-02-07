@@ -27,12 +27,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          miniforge-variant: Miniforge3
-          miniforge-version: latest
-          auto-update-conda: true
 
       - name: Install nox
         run: pip install nox

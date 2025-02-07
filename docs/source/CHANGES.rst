@@ -4,7 +4,10 @@ Changes for bmi-geotiff
 0.3.4 (unreleased)
 ------------------
 
--  Nothing changed yet.
+-  Update CI workflows and project metadata (#33)
+-  Fix failing docs build (#32)
+-  Use Miniforge instead of Mambaforge in CI (#31)
+-  Make a landing page for the examples (#30)
 
 0.3.3 (2024-08-17)
 ------------------
