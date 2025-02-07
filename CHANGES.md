@@ -2,6 +2,7 @@
 
 ## 0.3.4 (unreleased)
 
+- Update CI workflows and project metadata (#33)
 - Fix failing docs build (#32)
 - Use Miniforge instead of Mambaforge in CI (#31)
 - Make a landing page for the examples (#30)
