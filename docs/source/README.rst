@@ -13,10 +13,10 @@ using the
 `rioxarray <https://corteva.github.io/rioxarray/stable/index.html>`__
 `open_rasterio <https://corteva.github.io/rioxarray/stable/rioxarray.html#rioxarray.open_rasterio>`__
 method. The API is wrapped with a `Basic Model
-Interface <https://bmi.readthedocs.io>`__ (BMI), which provides a
-standard set of functions for coupling with data or models that also
-expose a BMI. More information on the BMI can found in its
-`documentation <https://bmi.readthedocs.io>`__.
+Interface <https://bmi.csdms.io>`__ (BMI), which provides a standard set
+of functions for coupling with data or models that also expose a BMI.
+More information on the BMI can found in its
+`documentation <https://bmi.csdms.io>`__.
 
 Installation
 ------------
@@ -155,7 +155,7 @@ scripts included in the
 directory of the *bmi-geotiff* repository.
 
 Documentation for *bmi-geotiff* is available at
-https://bmi-geotiff.readthedocs.io.
+https://bmi-geotiff.csdms.io.
 
 .. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4721474.svg
    :target: https://doi.org/10.5281/zenodo.4721474
@@ -166,4 +166,4 @@ https://bmi-geotiff.readthedocs.io.
 .. |Test| image:: https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml/badge.svg
    :target: https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml
 .. |Documentation Status| image:: https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest
-   :target: https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest
+   :target: https://bmi-geotiff.csdms.io/en/latest/?badge=latest
