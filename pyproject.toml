@@ -43,6 +43,7 @@ Homepage = "https://csdms.colorado.edu"
 Documentation = "https://bmi-geotiff.csdms.io/"
 Repository = "https://github.com/csdms/bmi-geotiff"
 Changelog = "https://github.com/csdms/bmi-geotiff/blob/main/CHANGES.md"
+Forum = "https://forum.csdms.io"
 
 [project.optional-dependencies]
 dev = [
