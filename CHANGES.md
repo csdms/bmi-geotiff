@@ -1,6 +1,6 @@
 # Changes for bmi-geotiff
 
-## 0.3.4 (unreleased)
+## 0.3.4 (2025-02-07)
 
 - Update CI workflows and project metadata (#33)
 - Fix failing docs build (#32)
