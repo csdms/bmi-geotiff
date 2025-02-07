@@ -2,7 +2,7 @@
 [![PyPI](https://img.shields.io/pypi/v/bmi-geotiff)](https://pypi.org/project/bmi-geotiff)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/bmi-geotiff.svg)](https://anaconda.org/conda-forge/bmi-geotiff)
 [![Test](https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml/badge.svg)](https://github.com/csdms/bmi-geotiff/actions/workflows/test.yml)
-[![Documentation Status](https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest)](https://bmi-geotiff.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/bmi-geotiff/badge/?version=latest)](https://bmi-geotiff.csdms.io/en/latest/?badge=latest)
 
 # bmi-geotiff
 
@@ -15,11 +15,11 @@ Data are loaded into an
 using the [rioxarray](https://corteva.github.io/rioxarray/stable/index.html)
 [open_rasterio](https://corteva.github.io/rioxarray/stable/rioxarray.html#rioxarray.open_rasterio) method.
 The API is wrapped with a
-[Basic Model Interface](https://bmi.readthedocs.io) (BMI),
+[Basic Model Interface](https://bmi.csdms.io) (BMI),
 which provides a standard set of functions for coupling with data or models
 that also expose a BMI.
 More information on the BMI can found in its
-[documentation](https://bmi.readthedocs.io).
+[documentation](https://bmi.csdms.io).
 
 ## Installation
 
@@ -136,4 +136,4 @@ included in the [examples](https://github.com/csdms/bmi-geotiff/tree/main/exampl
 of the *bmi-geotiff* repository.
 
 Documentation for *bmi-geotiff*
-is available at https://bmi-geotiff.readthedocs.io.
+is available at https://bmi-geotiff.csdms.io.
