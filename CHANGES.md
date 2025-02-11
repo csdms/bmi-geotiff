@@ -2,8 +2,7 @@
 
 ## 0.3.5 (unreleased)
 
-
-- Nothing changed yet.
+- Schedule a monthly test workflow run (#34)
 
 
 ## 0.3.4 (2025-02-07)
