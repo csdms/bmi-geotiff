@@ -1,7 +1,7 @@
-""" conf.py
-    Configuration file for the Sphinx documentation builder.
+"""conf.py
+ Configuration file for the Sphinx documentation builder.
 
-   isort:skip_file
+isort:skip_file
 """
 
 # This file only contains a selection of the most common options. For a full
