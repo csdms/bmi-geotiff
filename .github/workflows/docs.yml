@@ -11,8 +11,7 @@ jobs:
   build:
     name: Build documentation
     if:
-      github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
-      github.repository
+      github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
 
     runs-on: ubuntu-latest
 
@@ -22,7 +21,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
-          python-version: 3.12
+          python-version: 3.14
           auto-activate-base: false
 
       - name: Install dependencies
