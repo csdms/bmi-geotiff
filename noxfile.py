@@ -73,11 +73,10 @@ def lint(session: nox.Session) -> None:
     session.run("pre-commit", "run", "--all-files")
 
 
-@nox.session(name="build-docs", venv_backend="conda")
+@nox.session(name="build-docs")
 def build_docs(session: nox.Session) -> None:
     """Build the docs."""
-    session.conda_install("--file", "docs/requirements.txt")
-    session.install("-e", ".")
+    session.install(".[docs]")
 
     for file in ["CHANGES", "CONTRIBUTING", "CODE-OF-CONDUCT", "LICENSE"]:
         shutil.copy(f"{file}.md", f"docs/source/{file}.md")
