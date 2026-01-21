@@ -9,6 +9,8 @@ Project lead
 Acknowledgments
 ---------------
 
-This work is supported by the National Science Foundation
+<!-- start-acknowledgment-text -->
+
+This work is supported by the U.S. National Science Foundation
 under Award No. [1831623](https://nsf.gov/awardsearch/showAward?AWD_ID=1831623),
 *Community Facility Support: The Community Surface Dynamics Modeling System (CSDMS)*.
