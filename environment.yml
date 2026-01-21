@@ -16,7 +16,7 @@ dependencies:
   - coveralls
   - bmi-tester
   - sphinx >=8
-  - myst_parser
+  - myst-parser
   - notebook
   - matplotlib
   - cartopy
