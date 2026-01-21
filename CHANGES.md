@@ -1,5 +1,11 @@
 # Changes for bmi-geotiff
 
+## 0.4.1 (unreleased)
+
+
+- Nothing changed yet.
+
+
 ## 0.4.0 (2026-01-21)
 
 - Review build on Read the Docs (#39)
