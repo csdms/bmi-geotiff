@@ -9,21 +9,21 @@ bmi\_geotiff.bmi module
 
 .. automodule:: bmi_geotiff.bmi
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 bmi\_geotiff.io module
 ----------------------
 
 .. automodule:: bmi_geotiff.io
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: bmi_geotiff
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
