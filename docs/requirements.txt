@@ -1,3 +1,2 @@
 sphinx >=8
-recommonmark
-pandoc
+myst-parser >=1

@@ -59,8 +59,7 @@ testing = [
 ]
 docs = [
   "sphinx",
-  "recommonmark",
-  "pandoc",
+  "myst-parser",
 ]
 examples = [
   "cartopy",
