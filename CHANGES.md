@@ -2,6 +2,9 @@
 
 ## 0.3.5 (unreleased)
 
+- Update license metadata for PEP 639 (#37)
+- Update supported Python version to 3.14 (#36)
+- Update pre-commit hooks (#35)
 - Schedule a monthly test workflow run (#34)
 
 
