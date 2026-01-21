@@ -1,6 +1,6 @@
 # Changes for bmi-geotiff
 
-## 0.3.5 (unreleased)
+## 0.4.0 (2026-01-21)
 
 - Review build on Read the Docs (#39)
 - Convert docs to MyST Markdown (#38)
