@@ -16,8 +16,7 @@ dependencies:
   - coveralls
   - bmi-tester
   - sphinx >=8
-  - recommonmark
-  - pandoc
+  - myst-parser
   - notebook
   - matplotlib
   - cartopy

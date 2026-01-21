@@ -2,6 +2,8 @@
 
 ## 0.3.5 (unreleased)
 
+- Review build on Read the Docs (#39)
+- Convert docs to MyST Markdown (#38)
 - Update license metadata for PEP 639 (#37)
 - Update supported Python version to 3.14 (#36)
 - Update pre-commit hooks (#35)
