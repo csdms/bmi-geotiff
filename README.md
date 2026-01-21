@@ -135,5 +135,7 @@ see the Jupyter Notebooks and Python scripts
 included in the [examples](https://github.com/csdms/bmi-geotiff/tree/main/examples) directory
 of the *bmi-geotiff* repository.
 
+<!-- skip-docs-link -->
+
 Documentation for *bmi-geotiff*
 is available at https://bmi-geotiff.csdms.io.
